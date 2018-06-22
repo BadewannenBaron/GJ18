@@ -10,37 +10,37 @@ if not pygame.mixer: print('Fehler pygame.mixer Modul konnte nicht geladen werde
 
 def main():
 # Initialisieren aller Pygame-Module und    
-# Fenster erstellen (wir bekommen eine Surface, die den Bildschirm repräsentiert).
+# Fenster erstellen (wir bekommen eine Surface, die den Bildschirm repraesentiert).
 	pygame.init()
 	screen = pygame.display.set_mode((1080, 920))
-# Titel des Fensters setzen, Mauszeiger nicht verstecken und Tastendrücke wiederholt senden.
+# Titel des Fensters setzen, Mauszeiger nicht verstecken und Tastendruecke wiederholt senden.
 	pygame.display.set_caption("Pygame-Tutorial: Grundlagen")
 	pygame.mouse.set_visible(1)
 	pygame.key.set_repeat(1, 30)
-# Clock-Objekt erstellen, das wir benötigen, um die Framerate zu begrenzen.
+# Clock-Objekt erstellen, das wir benoetigen, um die Framerate zu begrenzen.
 	clock = pygame.time.Clock()
-# Die Schleife, und damit unser Spiel, läuft solange running == True.
+# Die Schleife, und damit unser Spiel, laeuft solange running == True.
 	running = True
 
 	while running:
-# Framerate auf 30 Frames pro Sekunde beschränken.# Pygame wartet, falls das Programm schneller läuft.
+# Framerate auf 30 Frames pro Sekunde beschraenken.# Pygame wartet, falls das Programm schneller laeuft.
 		clock.tick(30)
-# screen-Surface mit Schwarz (RGB = 0, 0, 0) füllen.
+# screen-Surface mit Schwarz (RGB = 0, 0, 0) fuellen.
 		screen.fill((0, 0, 0))
 # Alle aufgelaufenen Events holen und abarbeiten.
 		for event in pygame.event.get():
 # Spiel beenden, wenn wir ein QUIT-Event finden.
 			if event.type == pygame.QUIT:
 				running = False
-# Wir interessieren uns auch für "Taste gedrückt"-Events.
+# Wir interessieren uns auch fuer "Taste gedrueckt"-Events.
 			if event.type == pygame.KEYDOWN:
-# Wenn Escape gedrückt wird, posten wir ein QUIT-Event in Pygames Event-Warteschlange.
+# Wenn Escape gedrueckt wird, posten wir ein QUIT-Event in Pygames Event-Warteschlange.
 				if event.key == pygame.K_ESCAPE:
 					pygame.event.post(pygame.event.Event(pygame.QUIT))
 # Inhalt von screen anzeigen.
 		pygame.display.flip()
 
- # Überprüfen, ob dieses Modul als Programm läuft und nicht in einem anderen Modul importiert wird.
+ # Ueberpruefen, ob dieses Modul als Programm laeuft und nicht in einem anderen Modul importiert wird.
 
 if __name__ == '__main__':
 
